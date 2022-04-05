@@ -1,3 +1,9 @@
 # PhpAurion
 Ceci est un projet de fin d'année en PHP-HTML-CSS
-test
+
+
+# Repartition du travail :
+## Milo
+
+## Sacha
+- diagramme de classes UML
