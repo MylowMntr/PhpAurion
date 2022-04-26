@@ -24,7 +24,7 @@ if(isset($_POST['username']) && isset($_POST['password']))
             $exec_requete = mysqli_query($connexion,$requete);
             $reponse      = mysqli_fetch_assoc($exec_requete);
             $_SESSION['name'] = $reponse['prenom'];
-            $_SESSION['prof'] = $response['isProf'];
+            $_SESSION['prof'] = $reponse['isProf'];
             header('Location: ../index.php');
         }
         else
