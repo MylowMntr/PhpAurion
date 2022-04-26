@@ -1,4 +1,4 @@
-<!-- si prof, on peut ajouter des notes -->
+<!-- si prof, on peut ajouter des absences -->
 
 
 

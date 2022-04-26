@@ -1,19 +1,19 @@
 <!-- si prof, on peut ajouter des notes -->
 
 
-<?php 
-if(isset($_SESSION["prof"]) && $_SESSION["prof"] == 1){
-include("includes/mainconfig.php");?>
-
 <!DOCTYPE html>
 <html>
 <head>
 	<?php include("includes/head.php");?>
 </head>
 <body>
-
 <?php include("includes/top.php");?>
+
 <?php include("includes/navigation.php");?>
+<?php 
+if(isset($_SESSION['prof']) && ($_SESSION['prof'] == 1)){
+include("includes/mainconfig.php");?>
+
 
 <div class="container" id="main-content">
 	<h2>Ajouter une note</h2>		
