@@ -13,18 +13,18 @@ if(isset($_POST['username']) && isset($_POST['password']))
 
     if($username !== "" && $password !== "")
     {
-        $requete = "SELECT count(*) FROM eleve where
-              nom = '".$username."' and password = '".$password."' ";
+        $requete = "SELECT count(*) FROM utilisateurs where
+              username = '".$username."' and password = '".$password."' ";
         $exec_requete = mysqli_query($connexion,$requete);
         $reponse      = mysqli_fetch_array($exec_requete);
         $count = $reponse['count(*)'];
         if($count!=0) // nom d'utilisateur et mot de passe correctes
         {
-            $requete = "SELECT prenom FROM eleve where
-              nom = '".$username."'";
+            $requete = "SELECT prenom,isProf FROM utilisateurs WHERE username = '".$username."'";
             $exec_requete = mysqli_query($connexion,$requete);
             $reponse      = mysqli_fetch_assoc($exec_requete);
             $_SESSION['name'] = $reponse['prenom'];
+            $_SESSION['prof'] = $response['isProf'];
             header('Location: ../index.php');
         }
         else

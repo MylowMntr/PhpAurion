@@ -2,7 +2,7 @@
 
 
 <?php 
-if(isset($_SESSION["prof"]) && $_SESSION["prof"] == true){
+if(isset($_SESSION["prof"]) && $_SESSION["prof"] == 1){
 include("includes/mainconfig.php");?>
 
 <!DOCTYPE html>
@@ -23,13 +23,12 @@ include("includes/mainconfig.php");?>
 			<select name="eleve">
 			<?php
 			require("./backend/connectDB.php");
-			$request = "SELECT nom FROM eleve"; 
+			$request = "SELECT prenom FROM utilisateurs WHERE isProf = 0"; 
 			$resultat =mysqli_query($connexion,$request); //Executer la requete	
-
 			while($row = mysqli_fetch_assoc($resultat)){
-				// $nom = $row;
-				echo($row);
-				// echo "<option value='$reference'>$nomProd</option>";
+				$nom = $row['prenom'];
+				$id = $row['id'];
+				echo "<option value='$id'>$nom</option>";
 			}
 			?>
 		</fieldset>
