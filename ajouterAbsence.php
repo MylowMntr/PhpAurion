@@ -24,13 +24,12 @@ include("includes/mainconfig.php");?>
 			<select name="eleve">
 			<?php
 			require("./backend/connectDB.php");
-			$request = "SELECT nom FROM eleve"; 
+			$request = "SELECT nom FROM utilisateurs WHERE isProf = false"; 
 			$resultat =mysqli_query($connexion,$request); //Executer la requete	
-
 			while($row = mysqli_fetch_assoc($resultat)){
-				// $nom = $row;
-				echo($row);
-				// echo "<option value='$reference'>$nomProd</option>";
+				$nom = $row['nom'];
+				$id = $row['id'];
+				echo "<option value='$id>$nom</option>";
 			}
 			?>
 		</fieldset>
