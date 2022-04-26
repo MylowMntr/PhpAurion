@@ -2,7 +2,7 @@
 
 
 <?php 
-if(isset($_SESSION["prof"]) && $_SESSION["prof"] == true){
+if(isset($_SESSION['prof']) && $_SESSION['prof'] == 1){
 include("includes/mainconfig.php");?>
 
 <!DOCTYPE html>
