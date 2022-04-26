@@ -9,32 +9,37 @@ if(isset($_POST['username']) && isset($_POST['password']))
     // pour éliminer toute attaque de type injection SQL et XSS
     $username = mysqli_real_escape_string($connexion,htmlspecialchars($_POST['username'])); 
     $password = mysqli_real_escape_string($connexion,htmlspecialchars($_POST['password']));
-    
+   //  $firstName = mysqli_real_escape_string($connexion,htmlspecialchars($_POST['username'])); 
+
     if($username !== "" && $password !== "")
     {
-        $requete = "SELECT count(*) FROM utilisateur where 
-              nom_utilisateur = '".$username."' and mot_de_passe = '".$password."' ";
+        $requete = "SELECT count(*) FROM eleve where
+              nom = '".$username."' and password = '".$password."' ";
         $exec_requete = mysqli_query($connexion,$requete);
         $reponse      = mysqli_fetch_array($exec_requete);
         $count = $reponse['count(*)'];
         if($count!=0) // nom d'utilisateur et mot de passe correctes
         {
-           $_SESSION['name'] = $username;
-           header('Location: index.php');
+            $requete = "SELECT prenom FROM eleve where
+              nom = '".$username."'";
+            $exec_requete = mysqli_query($connexion,$requete);
+            $reponse      = mysqli_fetch_assoc($exec_requete);
+            $_SESSION['name'] = $reponse['prenom'];
+            header('Location: ../index.php');
         }
         else
         {
-           header('Location: ./connexion.php?erreur=1'); // utilisateur ou mot de passe incorrect
+           header('Location: ../connexion.php?erreur=1'); // utilisateur ou mot de passe incorrect
         }
     }
     else
     {
-       header('Location: ./connexion.php?erreur=2'); // utilisateur ou mot de passe vide
+       header('Location: ../connexion.php?erreur=2'); // utilisateur ou mot de passe vide
     }
 }
 else
 {
-   header('Location: ./connexion.php');
+   header('Location:../connexion.php');
 }
 mysqli_close($connexion); // fermer la connexion
 ?>
