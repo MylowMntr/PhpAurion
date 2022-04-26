@@ -16,7 +16,7 @@
 
 		<?php
 		if (isset($_SESSION["name"])){
-			if (isset($_SESSION["prof"]) && $_SESSION["prof"] == false){
+			if (isset($_SESSION["prof"]) && ($_SESSION["prof"] == 0)){
 			?>
 				<li class="nav-item">
 					<a class="nav-link <?php if (basename($_SERVER['PHP_SELF']) == "notes.php") {?>active<?php }?>" href="notes.php">Mes notes</a>
@@ -27,7 +27,7 @@
 				</li>
 			<?php 
 			}
-			if (isset($_SESSION["prof"]) && $_SESSION["prof"] == true){
+			if (isset($_SESSION["prof"]) && ($_SESSION["prof"] == 1)){
 			?>
 				<li class="nav-item">
 					<a class="nav-link <?php if (basename($_SERVER['PHP_SELF']) == "ajouterNote.php") {?>active<?php }?>" href="ajouterNote.php">Ajouter une note</a>
