@@ -13,7 +13,7 @@
 <div class="container" id="main-content">
             <!-- zone de connexion -->
 	<!-- <form action="backend/verification.php" method="POST"> -->
-	<form action="backend/verification.php" method="POST">
+	<form action="backend/VerifLocal.php" method="POST">
 		<h1>Connexion</h1>
 		
 		<label><b>Nom d'utilisateur</b></label>
