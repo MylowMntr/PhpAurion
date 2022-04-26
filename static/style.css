@@ -7,7 +7,9 @@ body{
 }
 
 .jumbotron{
-    background-image: url("https://www.isen-lille.fr/wp-content/uploads/2020/04/Atrium-ISEN-Lille.jpg");
+    /* background-image: url("https://www.isen-lille.fr/wp-content/uploads/2020/04/Atrium-ISEN-Lille.jpg"); */
+    background-color: #3a99fc;
+    width: 100%;
 }
 
 .footer {

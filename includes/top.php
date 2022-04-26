@@ -1,8 +1,9 @@
 <div class="jumbotron">
 
 <?php
-	if(isset($_GET['name'])){
-		$name = $_GET['name'];
+	session_start();
+	if(isset($_SESSION['name'])){
+		$name = $_SESSION['name'];
 		?>
 		<h1>Bonjour <?php echo $name;?> !</h1>
 	<?php 
