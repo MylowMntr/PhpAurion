@@ -16,14 +16,29 @@
 
 		<?php
 		if (isset($_SESSION["name"])){
-		?>
-			<li class="nav-item">
-				<a class="nav-link <?php if (basename($_SERVER['PHP_SELF']) == "notes.php") {?>active<?php }?>" href="notes.php">Mes notes</a>
-			</li>
+			if (isset($_SESSION["prof"]) && $_SESSION["prof"] == false){
+			?>
+				<li class="nav-item">
+					<a class="nav-link <?php if (basename($_SERVER['PHP_SELF']) == "notes.php") {?>active<?php }?>" href="notes.php">Mes notes</a>
+				</li>
 
-			<li class="nav-item">
-				<a class="nav-link <?php if (basename($_SERVER['PHP_SELF']) == "absences.php") {?>active<?php }?>" href="absences.php">Mes absences</a>
-			</li>
+				<li class="nav-item">
+					<a class="nav-link <?php if (basename($_SERVER['PHP_SELF']) == "absences.php") {?>active<?php }?>" href="absences.php">Mes absences</a>
+				</li>
+			<?php 
+			}
+			if (isset($_SESSION["prof"]) && $_SESSION["prof"] == true){
+			?>
+				<li class="nav-item">
+					<a class="nav-link <?php if (basename($_SERVER['PHP_SELF']) == "ajouterNote.php") {?>active<?php }?>" href="ajouterNote.php">Ajouter une note</a>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link <?php if (basename($_SERVER['PHP_SELF']) == "ajouterAbsence.php") {?>active<?php }?>" href="ajouterAbsence.php">Ajouter une absence</a>
+				</li>
+			<?php 
+			}
+			?>
 
 			<li class="nav-item">
 				<a class="nav-link" href="backend/logout.php">Déconnexion</a>
