@@ -59,8 +59,12 @@ input[type=submit]:hover {
 }
 
 
-footer{
-    position: absolute;
-    width: 100%;
-    background-color: #3a99fc;
+footer {
+    position: fixed;
+    height: 35px;
+    background-color: #007bff;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
 }
