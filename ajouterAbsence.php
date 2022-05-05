@@ -30,29 +30,31 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 <?php 
 if(isset($_SESSION['prof']) && ($_SESSION['prof'] == 1)){
 include("includes/mainconfig.php");?>
+<?php include('backend/interactDB.php'); ?>
+
 
 
 <div class="container" id="main-content">
 	<h2>Ajouter une absence</h2>
-	<form action="ajouterAbsence.php" method="post">
+	<form action="backend/interactDB.php" method="post">
 		<fieldset>
 			<label>Eleve : </label>
 			<select name="eleve">
-			<?php
-			require("./backend/connectDB.php");
-			$request = "SELECT id,prenom FROM utilisateurs WHERE isProf = 0"; 
-			$resultat =mysqli_query($connexion,$request); //Executer la requete	
-			while($row = mysqli_fetch_assoc($resultat)){
-				$nom = $row['prenom'];
-				$id = $row['id'];
-				echo "<option value='$id'>$nom</option>";
-			}
-			?>
+			<?php getSelect_student(); ?>
 			</select>
 			<br>
-			<label for="nbHeures">Heures d'absences :</label>
-			<input type="text" id="nbHeures" name="heures" size="30" maxlength="30">
+			<label>Matière : </label>
+			<select name="matiere">
+			<?php getSelect_matiere(); ?>
+			</select>
+			<br>
+			<label>Durée :</label>
+			<input type="number" name="duree" min=1>
+			<br>
+			<label>Date : </label>
+			<input type="date" name="date">
 		</fieldset>
+		<input type="submit" value='Ajouter'>
 	</form>
 			
 </div>
