@@ -26,19 +26,24 @@
 				</tr>
 			</thead>
 			<?php
-				while($row = mysqli_fetch_array($resultat)){  
+				$moy = 0;
+				while($row = mysqli_fetch_array($resultat)){ 
+					$moy += $row["note"];
 			?>  
-				<tr>  
-					<th><?php echo $row["nomMatiere"];?></th>  
-					<th><?php echo $row["note"]; ?></th>  
-				</tr>  
+				
+					<tr>  
+						<th><?php echo $row["nomMatiere"];?></th>  
+						<th><?php echo $row["note"]; ?></th>  
+					</tr>  
 			<?php  
-				}  
+				}
 			?>
 			</table>
 
 
 		<?php
+		
+		echo "<p>Moyenne générale :  <a style='color: #007bff;' >".round(($moy/mysqli_num_rows($resultat)),2)."</a></p>";
 		}
 		else{
 			echo "<p> Vous n'avez pas d'absence. </p>";

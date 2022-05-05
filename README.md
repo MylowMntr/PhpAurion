@@ -10,5 +10,4 @@ il sera appellé par les pages principales.
 
 # A faire:
 - Diagramme UML
-- Calcul Moyenne
 - Rapport
