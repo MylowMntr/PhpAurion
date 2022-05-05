@@ -8,10 +8,7 @@ le dossier "includes" contient donc les pages "statiques" tel que le header, foo
 il sera appellé par les pages principales.
 
 
-# Repartition du travail :
-## Milo
-- front-end
-
-
-## Sacha
-- diagramme de classes UML
+# A faire:
+- Diagramme UML
+- Calcul Moyenne
+- Rapport
