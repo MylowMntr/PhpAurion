@@ -56,7 +56,8 @@ include("includes/mainconfig.php");?>
 		</fieldset>
 		<input type="submit" value='Ajouter'>
 	</form>
-			
+	<br>
+
 </div>
 
 <?php include("includes/footer.php");?>
