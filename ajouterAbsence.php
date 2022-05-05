@@ -17,19 +17,19 @@ include("includes/mainconfig.php");?>
 
 
 <div class="container" id="main-content">
-	<h2>Ajouter une absence</h2>		
+	<h2>Ajouter une note</h2>		
 	<form action="gestion.php" method="post">
 		<fieldset>
 			<label>Eleve</label>
 			<select name="eleve">
 			<?php
 			require("./backend/connectDB.php");
-			$request = "SELECT nom FROM utilisateurs WHERE isProf = false"; 
+			$request = "SELECT prenom FROM utilisateurs WHERE isProf = 0"; 
 			$resultat =mysqli_query($connexion,$request); //Executer la requete	
 			while($row = mysqli_fetch_assoc($resultat)){
-				$nom = $row['nom'];
+				$nom = $row['prenom'];
 				$id = $row['id'];
-				echo "<option value='$id>$nom</option>";
+				echo "<option value='$id'>$nom</option>";
 			}
 			?>
 		</fieldset>
