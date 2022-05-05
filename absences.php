@@ -29,14 +29,14 @@
 			</thead>
 			<?php
 				while($row = mysqli_fetch_array($resultat)){  
-			?>  
-				<tr>  
+			?>
+				<tr>
 					<th scope="col"><?php echo $row["nomMatiere"];?></th>  
 					<th scope="col"><?php echo date('d-m-Y', strtotime($row["dateObj"])) ; ?></th>
 					<th scope="col"><?php echo $row["duree"]."h"; ?></th>
-				</tr>  
+				</tr>
 			<?php  
-				}  
+				}
 			?>
 			</table>
 
