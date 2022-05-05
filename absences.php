@@ -32,7 +32,7 @@
 			?>  
 				<tr>  
 					<th scope="col"><?php echo $row["nomMatiere"];?></th>  
-					<th scope="col"><?php echo date('d-m-Y', strtotime($row["date"])) ; ?></th>
+					<th scope="col"><?php echo date('d-m-Y', strtotime($row["dateObj"])) ; ?></th>
 					<th scope="col"><?php echo $row["duree"]."h"; ?></th>
 				</tr>  
 			<?php  
