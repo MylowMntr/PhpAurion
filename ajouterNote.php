@@ -1,16 +1,19 @@
 <!-- si prof, on peut ajouter des notes -->
 
 
-
 <!DOCTYPE html>
 <html>
 <head>
 	<?php include("includes/head.php");?>
 </head>
 <body>
-
 <?php include("includes/top.php");?>
+
 <?php include("includes/navigation.php");?>
+<?php 
+if(isset($_SESSION['prof']) && ($_SESSION['prof'] == 1)){
+include("includes/mainconfig.php");?>
+
 
 <?php 
 if(isset($_SESSION["prof"]) && $_SESSION["prof"] == 1){

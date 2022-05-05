@@ -1,4 +1,4 @@
-<!-- si prof, on peut ajouter des notes -->
+<!-- si prof, on peut ajouter des absences -->
 
 <?php
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -40,10 +40,10 @@ include("includes/mainconfig.php");?>
 			<select name="eleve">
 			<?php
 			require("./backend/connectDB.php");
-			$request = "SELECT id,nom FROM utilisateurs WHERE isProf = 0"; 
+			$request = "SELECT id,prenom FROM utilisateurs WHERE isProf = 0"; 
 			$resultat =mysqli_query($connexion,$request); //Executer la requete	
 			while($row = mysqli_fetch_assoc($resultat)){
-				$nom = $row['nom'];
+				$nom = $row['prenom'];
 				$id = $row['id'];
 				echo "<option value='$id'>$nom</option>";
 			}
