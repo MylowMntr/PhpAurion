@@ -14,8 +14,7 @@
 	<h2>Absences</h2>
 	<?php
 		require("./backend/connectDB.php");
-		// $request = "SELECT * FROM absences INNER JOIN matiere ON  matiere.matiereID = absences.idMatiere WHERE idEleve = '".$_SESSION['id']."' "; 
-		$request = "SELECT * FROM absences INNER JOIN matiere ON  matiere.matiereID = absences.idMatiere WHERE idEleve = '4' "; 
+		$request = "SELECT * FROM absences INNER JOIN matiere ON  matiere.matiereID = absences.idMatiere WHERE idEleve = '".$_SESSION['id']."' ";
 
 		$resultat =mysqli_query($connexion,$request); //Executer la requete	  
 		if(mysqli_num_rows($resultat) > 0)  
