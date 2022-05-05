@@ -28,15 +28,11 @@ function addAbsence(){
     $idEleve = $_POST['eleve'];
     $idMatiere = $_POST['matiere'];
     $heure = $_POST['duree'];
-    $date = date('Y-m-d H:i:s', strtotime($_POST['date']));
-    // $date = $_POST['date'];
-    echo $date;
-
-    // $date = strval($date);
+    $date = date('Y-m-d', strtotime($_POST['date']));
     require("connectDB.php");
-    $request ="INSERT INTO absences (idEleve,idMatiere,duree,dateObj) VALUES ($idEleve,$idMatiere,$heure,$date)";
+    $request ="INSERT INTO absences (idEleve,idMatiere,duree,dateObj) VALUES ($idEleve,$idMatiere,$heure,'$date')";
     $resultat =mysqli_query($connexion,$request); //Executer la requete
-    // header('location:../ajouterAbsence.php');
+    header('location:../ajouterAbsence.php');
 }
 
 function addNote(){
@@ -54,7 +50,8 @@ if($_SERVER["REQUEST_METHOD"] == 'POST') {
         addNote();
     }
     if(isset($_POST['duree'])){
-        addAbsence();
+        if(date('Y-m-d', strtotime($_POST['date'])) != '1970-01-01') addAbsence();
+        else header('location:../ajouterAbsence.php');
     }
 }
 ?>
