@@ -20,9 +20,10 @@ if(isset($_POST['username']) && isset($_POST['password']))
         $count = $reponse['count(*)'];
         if($count!=0) // nom d'utilisateur et mot de passe correctes
         {
-            $requete = "SELECT prenom,isProf FROM utilisateurs WHERE username = '".$username."'";
+            $requete = "SELECT * FROM utilisateurs WHERE username = '".$username."'";
             $exec_requete = mysqli_query($connexion,$requete);
             $reponse      = mysqli_fetch_assoc($exec_requete);
+            $_SESSION['id'] = $reponse['id'];
             $_SESSION['name'] = $reponse['prenom'];
             $_SESSION['prof'] = $reponse['isProf'];
             header('Location: ../index.php');
