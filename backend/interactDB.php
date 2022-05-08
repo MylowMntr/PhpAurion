@@ -45,9 +45,22 @@ function addNote(){
     header('location:../ajouterNote.php');
 }
 
+function edit_note(){
+    $note = $_POST['new_note'];
+    if($note < 0) {
+       remove_note();
+    }
+    else{
+        
+    }
+}
+
 if($_SERVER["REQUEST_METHOD"] == 'POST') { 
     if(isset($_POST['note'])){
         addNote();
+    }
+    if(isset($_POST['new_note'])){
+        edit_note();
     }
     if(isset($_POST['duree'])){
         if(date('Y-m-d', strtotime($_POST['date'])) != '1970-01-01') addAbsence();
