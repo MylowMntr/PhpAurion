@@ -1,5 +1,3 @@
-<?php include("includes/mainconfig.php");?>
-
 <!DOCTYPE html>
 <html>
 <head>

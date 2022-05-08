@@ -9,12 +9,14 @@ if(isset($_POST['username']) && isset($_POST['password']))
     // pour éliminer toute attaque de type injection SQL et XSS
     $username = mysqli_real_escape_string($connexion,htmlspecialchars($_POST['username'])); 
     $password = mysqli_real_escape_string($connexion,htmlspecialchars($_POST['password']));
-   //  $firstName = mysqli_real_escape_string($connexion,htmlspecialchars($_POST['username'])); 
+
+    setcookie('username',"$username", time() + (24 * 3600),"/");
+    setcookie('password',"$password", time() + (24 * 3600),"/");
 
     if($username !== "" && $password !== "")
     {
-        $requete = "SELECT count(*) FROM utilisateurs where
-              username = '".$username."' and password = '".$password."' ";
+        $requete = "SELECT count(*) FROM utilisateurs WHERE
+            username = '".$username."' and password = '".$password."' ";
         $exec_requete = mysqli_query($connexion,$requete);
         $reponse      = mysqli_fetch_array($exec_requete);
         $count = $reponse['count(*)'];
@@ -26,16 +28,20 @@ if(isset($_POST['username']) && isset($_POST['password']))
             $_SESSION['id'] = $reponse['id'];
             $_SESSION['name'] = $reponse['prenom'];
             $_SESSION['prof'] = $reponse['isProf'];
+
+            setcookie('error',"0", time() + (24 * 3600),"/");
             header('Location: ../index.php');
         }
         else
         {
-           header('Location: ../connexion.php?erreur=1'); // utilisateur ou mot de passe incorrect
+            setcookie('error',"1", time() + (24 * 3600),"/");
+            header('Location: ../connexion.php'); // utilisateur ou mot de passe incorrect
         }
     }
     else
     {
-       header('Location: ../connexion.php?erreur=2'); // utilisateur ou mot de passe vide
+        setcookie('error',"2", time() + (24 * 3600),"/");
+        header('Location: ../connexion.php'); // utilisateur ou mot de passe vide
     }
 }
 else
