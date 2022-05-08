@@ -7,7 +7,3 @@ L'utilisation des "includes" en PHP nous permet de faire du "templating":
 le dossier "includes" contient donc les pages "statiques" tel que le header, footer...
 il sera appellé par les pages principales.
 
-
-# A faire:
-- Diagramme UML
-- Rapport
