@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : dim. 08 mai 2022 à 00:18
+-- Généré le : dim. 08 mai 2022 à 12:09
 -- Version du serveur : 5.7.24
 -- Version de PHP : 8.0.1
 
@@ -73,18 +73,20 @@ CREATE TABLE `notes` (
   `idNote` int(11) NOT NULL,
   `idEleve` int(11) NOT NULL,
   `idMatiere` int(11) NOT NULL,
-  `note` int(11) NOT NULL
+  `note` int(11) NOT NULL,
+  `noteDate` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `notes`
 --
 
-INSERT INTO `notes` (`idNote`, `idEleve`, `idMatiere`, `note`) VALUES
-(1, 2, 1, 5),
-(2, 2, 1, 7),
-(3, 2, 2, 10),
-(4, 2, 1, 12);
+INSERT INTO `notes` (`idNote`, `idEleve`, `idMatiere`, `note`, `noteDate`) VALUES
+(1, 2, 1, 5, NULL),
+(2, 2, 1, 7, NULL),
+(3, 2, 2, 10, NULL),
+(4, 2, 1, 12, NULL),
+(5, 2, 4, 20, '2022-05-10');
 
 -- --------------------------------------------------------
 
@@ -133,7 +135,7 @@ ALTER TABLE `utilisateurs`
 -- AUTO_INCREMENT pour la table `notes`
 --
 ALTER TABLE `notes`
-  MODIFY `idNote` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idNote` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `utilisateurs`

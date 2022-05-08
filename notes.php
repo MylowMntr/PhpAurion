@@ -21,6 +21,7 @@
 				<tr>
 					<th scope="col">Matiere</th>
 					<th scope="col">Note</th>
+					<th scope="col">Date</th>
 				</tr>
 			</thead>
 			<?php
@@ -31,7 +32,8 @@
 				
 					<tr>  
 						<th><?php echo $row["nomMatiere"];?></th>  
-						<th><?php echo $row["note"]; ?></th>  
+						<th><?php echo $row["note"]; ?></th>
+						<th><?php echo date('d-m-Y', strtotime($row["noteDate"])) ; ?></th>
 					</tr>  
 			<?php  
 				}
@@ -44,7 +46,7 @@
 		echo "<p>Moyenne générale :  <a style='color: #007bff;' >".round(($moy/mysqli_num_rows($resultat)),2)."</a></p>";
 		}
 		else{
-			echo "<p> Vous n'avez pas d'absence. </p>";
+			echo "<p> Vous n'avez pas de notes. </p>";
 		} 
 		?> 	
 </div>

@@ -64,6 +64,10 @@ function delete_note(){
     require("connectDB.php");
     $request ="DELETE FROM notes WHERE (idEleve = $idEleve AND idMatiere = $idMatiere AND noteDate = '$date')";
     $resultat =mysqli_query($connexion,$request); //Executer la requete
+    if(!$resultat){
+        setcookie('error',"4", time() + (24 * 3600),"/");
+        header('location:../modifierNote.php');
+    }
     header('location:../modifierNote.php');
 }
 
@@ -72,7 +76,7 @@ if($_SERVER["REQUEST_METHOD"] == 'POST') {
         addNote();
     }
     if(isset($_POST['new_note'])){
-        if($note < 0) {
+        if($_POST['new_note'] < 0) {
             delete_note();
          }
          else{
