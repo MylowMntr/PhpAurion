@@ -31,8 +31,8 @@ include('backend/interactDB.php'); ?>
 			<?php getSelect_matiere(); ?>
 			</select>
 			<br>
-			<label>Note : </label>
-			<input type="number" name="new_note" max=20>
+			<label>Nouvelle note : </label>
+			<input type="number" name="new_note" min=0 max=20>
 		</fieldset>
 		<input type="submit" value='Ajouter'>
 
