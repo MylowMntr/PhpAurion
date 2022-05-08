@@ -29,7 +29,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 <?php include("includes/navigation.php");?>
 <?php 
 if(isset($_SESSION['prof']) && ($_SESSION['prof'] == 1)){
-include("includes/mainconfig.php");?>
+// include("includes/mainconfig.php");
+?>
 <?php include('backend/interactDB.php'); ?>
 
 

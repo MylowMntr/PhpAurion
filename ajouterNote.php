@@ -13,7 +13,8 @@
 
 <?php 
 if(isset($_SESSION["prof"]) && $_SESSION["prof"] == 1){
-include("includes/mainconfig.php");?>
+// include("includes/mainconfig.php"); 
+?>
 <?php include('backend/interactDB.php'); ?>
 
 
@@ -33,6 +34,10 @@ include("includes/mainconfig.php");?>
 			<br>
 			<label>Note : </label>
 			<input type="number" name="note" min=0 max=20>
+			<br>
+			<label>Date : </label>
+			<input type="date" name="date">
+
 		</fieldset>
 		<input type="submit" value='Ajouter'>
 

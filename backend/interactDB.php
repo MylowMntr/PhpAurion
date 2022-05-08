@@ -39,20 +39,32 @@ function addNote(){
     $idEleve = $_POST['eleve'];
     $idMatiere = $_POST['matiere'];
     $note = $_POST['note'];
+    $date = date('Y-m-d', strtotime($_POST['date']));
     require("connectDB.php");
-    $request ="INSERT INTO notes (idEleve,idMatiere,note) VALUES ($idEleve,$idMatiere,$note)";
+    $request ="INSERT INTO notes (idEleve,idMatiere,note,noteDate) VALUES ($idEleve,$idMatiere,$note,'$date')";
     $resultat =mysqli_query($connexion,$request); //Executer la requete
     header('location:../ajouterNote.php');
 }
 
 function edit_note(){
     $note = $_POST['new_note'];
-    if($note < 0) {
-       remove_note();
-    }
-    else{
-        
-    }
+    $idEleve = $_POST['eleve'];
+    $idMatiere = $_POST['matiere'];
+    $date = date('Y-m-d', strtotime($_POST['date']));
+    require("connectDB.php");
+    $request ="UPDATE notes SET note = $note WHERE (idEleve = $idEleve  AND idMatiere = $idMatiere AND noteDate = '$date')";
+    $resultat =mysqli_query($connexion,$request); //Executer la requete
+    header('location:../modifierNote.php');
+}
+
+function delete_note(){
+    $idEleve = $_POST['eleve'];
+    $idMatiere = $_POST['matiere'];
+    $date = date('Y-m-d', strtotime($_POST['date']));
+    require("connectDB.php");
+    $request ="DELETE FROM notes WHERE (idEleve = $idEleve AND idMatiere = $idMatiere AND noteDate = '$date')";
+    $resultat =mysqli_query($connexion,$request); //Executer la requete
+    header('location:../modifierNote.php');
 }
 
 if($_SERVER["REQUEST_METHOD"] == 'POST') { 
@@ -60,7 +72,12 @@ if($_SERVER["REQUEST_METHOD"] == 'POST') {
         addNote();
     }
     if(isset($_POST['new_note'])){
-        edit_note();
+        if($note < 0) {
+            delete_note();
+         }
+         else{
+            edit_note();
+         }
     }
     if(isset($_POST['duree'])){
         if(date('Y-m-d', strtotime($_POST['date'])) != '1970-01-01') addAbsence();

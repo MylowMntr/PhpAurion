@@ -36,6 +36,9 @@
 				<li class="nav-item">
 					<a class="nav-link <?php if (basename($_SERVER['PHP_SELF']) == "ajouterAbsence.php") {?>active<?php }?>" href="ajouterAbsence.php">Ajouter une absence</a>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link <?php if (basename($_SERVER['PHP_SELF']) == "modifierNote.php") {?>active<?php }?>" href="modifierNote.php">Modifier une note</a>
+				</li>
 			<?php 
 			}
 			?>

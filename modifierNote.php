@@ -13,7 +13,7 @@
 
 <?php
 if(isset($_SESSION["prof"]) && $_SESSION["prof"] == 1){
-include("includes/mainconfig.php");
+// include("includes/mainconfig.php");
 include('backend/interactDB.php'); ?>
 
 
@@ -31,8 +31,11 @@ include('backend/interactDB.php'); ?>
 			<?php getSelect_matiere(); ?>
 			</select>
 			<br>
-			<label>Nouvelle note : </label>
-			<input type="number" name="new_note" min=0 max=20>
+			<label>Date : </label>
+			<input type="date" name="date">
+			<br>
+			<label>Nouvelle note (-1 pour supprimer) : </label>
+			<input type="number" name="new_note" min=-1 max=20>
 		</fieldset>
 		<input type="submit" value='Ajouter'>
 
