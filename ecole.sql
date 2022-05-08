@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : dim. 08 mai 2022 à 12:09
+-- Généré le : dim. 08 mai 2022 à 20:48
 -- Version du serveur : 5.7.24
 -- Version de PHP : 8.0.1
 
@@ -82,11 +82,9 @@ CREATE TABLE `notes` (
 --
 
 INSERT INTO `notes` (`idNote`, `idEleve`, `idMatiere`, `note`, `noteDate`) VALUES
-(1, 2, 1, 5, NULL),
-(2, 2, 1, 7, NULL),
-(3, 2, 2, 10, NULL),
-(4, 2, 1, 12, NULL),
-(5, 2, 4, 20, '2022-05-10');
+(6, 2, 2, 15, '2022-04-11'),
+(7, 2, 5, 5, '2022-04-29'),
+(8, 2, 3, 20, '2022-04-28');
 
 -- --------------------------------------------------------
 
@@ -135,7 +133,7 @@ ALTER TABLE `utilisateurs`
 -- AUTO_INCREMENT pour la table `notes`
 --
 ALTER TABLE `notes`
-  MODIFY `idNote` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idNote` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT pour la table `utilisateurs`
